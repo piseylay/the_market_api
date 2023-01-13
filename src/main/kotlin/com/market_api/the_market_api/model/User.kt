@@ -3,6 +3,7 @@ package com.market_api.the_market_api.model
 import com.fasterxml.jackson.annotation.JsonIgnore
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.market_api.the_market_api.base.BaseEntity
+import com.market_api.the_market_api.model.saleModel.Delivery
 import javax.persistence.*
 import javax.validation.constraints.NotBlank
 
@@ -28,6 +29,7 @@ class User(
     @JsonIgnore
     @OneToMany(mappedBy = "user",fetch = FetchType.LAZY)
     var userRole: MutableList<UserRole>?=null,
+
 ): BaseEntity() {
     constructor(id: Long):this(id,null)
 }

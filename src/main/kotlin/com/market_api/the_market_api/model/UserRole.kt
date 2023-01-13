@@ -11,13 +11,11 @@ data class UserRole(
     @JsonIgnoreProperties("hibernateLazyInitializer", "handler")
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "user_id")
-    @JsonIgnore
     var user: User? = null,
 
     @JsonIgnoreProperties("hibernateLazyInitializer", "handler")
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "role_id")
-    @JsonIgnore
     var role: Role? = null
 
 ) : BaseEntity() {
