@@ -17,13 +17,14 @@ data class Product(
     var description: String? = null,
     var thumbnail: String? = null,
     var imagePath: String? = null,
+    var price: Double? = 0.0,
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "categoryId", nullable = false)
     var category: Category? = null,
 
     @OneToMany(mappedBy = "product", cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
-    @JsonIgnore
+    //@JsonIgnore
     var productVariantUom: MutableList<ProductVariantUom>? = null,
 
     @OneToMany(mappedBy = "product", cascade = [CascadeType.ALL], fetch = FetchType.LAZY)

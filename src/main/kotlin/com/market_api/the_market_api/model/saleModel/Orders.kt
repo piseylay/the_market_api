@@ -3,6 +3,7 @@ package com.market_api.the_market_api.model.saleModel
 import com.fasterxml.jackson.annotation.JsonIgnore
 import com.market_api.the_market_api.base.BaseEntity
 import com.market_api.the_market_api.model.User
+import com.market_api.the_market_api.utils.OrderStatus
 import javax.persistence.*
 
 @Entity
@@ -17,6 +18,7 @@ data class Orders(
     var series: String? = null,
     var discountPer: Float? = 0.0F,
     var discountAmount: Double? = 0.0,
+    var orderStatus: OrderStatus? = OrderStatus.INCART,
 
     @OneToOne(mappedBy = "order", fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "paymentId", nullable = false)

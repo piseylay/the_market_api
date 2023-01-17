@@ -9,6 +9,8 @@ data class ProductVariantUom(
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long?= 0,
     var price: Double?=0.0,
+    var isDefault: Boolean = false,
+    var convensionFactory: Float = 0F,
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "uomId", nullable = false)

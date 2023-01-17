@@ -63,6 +63,7 @@ class WebSecurityConfig(
             /** dont authenticate this particular request */
             .authorizeRequests().antMatchers(
                 "/**/authenticate",
+                "/**/user"
             ).permitAll()
             /** all other requests need to be authenticated */
             .anyRequest().authenticated().and()
