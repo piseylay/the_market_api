@@ -23,8 +23,8 @@ data class Product(
     @JoinColumn(name = "categoryId", nullable = false)
     var category: Category? = null,
 
-    @OneToMany(mappedBy = "product", cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
-    //@JsonIgnore
+    @OneToMany(mappedBy = "product", cascade = [CascadeType.ALL], fetch = FetchType.LAZY, targetEntity = ProductVariantUom::class, orphanRemoval = true)
+   // @JsonIgnore
     var productVariantUom: MutableList<ProductVariantUom>? = null,
 
     @OneToMany(mappedBy = "product", cascade = [CascadeType.ALL], fetch = FetchType.LAZY)

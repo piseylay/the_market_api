@@ -16,7 +16,4 @@ data class Uom(
     @Column(name = "abbr", nullable = false)
     var abbr: String? = null,
     var isDefault: Boolean = false,
-    @OneToMany(mappedBy = "uom", cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
-    @JsonIgnore
-    var productVariantUom: MutableList<ProductVariantUom>? = null
 ):BaseEntity()

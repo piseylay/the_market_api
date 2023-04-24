@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Created-By: IntelliJ IDEA
+Built-By: Laptop-PC
+Build-Jdk: Amazon Corretto version 11.0.18
+Implementation-Title: the_market_api
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: com.market_api
+Main-Class: ${start-class}
+

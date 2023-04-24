@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping(AppConstant.MAIN_PATH+"/category")
-private class CategoryController {
+class CategoryController {
 
     @Autowired
     lateinit var categoryService: CategoryService

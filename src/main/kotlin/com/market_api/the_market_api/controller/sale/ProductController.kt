@@ -8,14 +8,14 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
 
 @RestController
-@RequestMapping(AppConstant.MAIN_PATH + "product")
+@RequestMapping(AppConstant.MAIN_PATH + "/product")
 class ProductController {
     @Autowired
     lateinit var productService: ProductService
     private val response = ResponseObjectMap()
 
     @PostMapping
-    fun addUom(@RequestBody uom: Product) : MutableMap<String, Any>{
+    fun addProduct(@RequestBody uom: Product) : MutableMap<String, Any>{
         return response.responseObject(productService.addNew(uom))
     }
 
@@ -28,6 +28,7 @@ class ProductController {
     fun getAll() : MutableMap<String, Any>{
         return response.responseObject(productService.findAll())
     }
+
 
     @GetMapping(AppConstant.LIST_PATH)
     fun getAllList(@RequestParam(required = false) q: String?, @RequestParam page:Int, @RequestParam size:Int): MutableMap<String, Any> {

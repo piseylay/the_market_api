@@ -11,6 +11,7 @@
     <groupId>com.market_api</groupId>
     <artifactId>the_market_api</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>war</packaging>
     <name>the_market_api</name>
     <description>the_market_api</description>
     <properties>
@@ -91,6 +92,7 @@
             <version>2.6.1</version>
             <scope>compile</scope>
         </dependency>
+
     </dependencies>
 
     <build>
@@ -101,6 +103,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+
             <plugin>
                 <groupId>org.jetbrains.kotlin</groupId>
                 <artifactId>kotlin-maven-plugin</artifactId>

@@ -40,7 +40,7 @@ class WebSecurityConfig(
     @Throws(java.lang.Exception::class)
     fun webSecurityCustomizer(): WebSecurityCustomizer? {
         return WebSecurityCustomizer { web: WebSecurity -> web.ignoring().antMatchers(
-            //"/**",
+            "/**/authenticate",
             "/v2/api-docs",
             "/configuration/ui",
             "/swagger-resources/**",

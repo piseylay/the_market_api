@@ -1,5 +1,6 @@
 package com.market_api.the_market_api.model.saleModel
 
+import com.fasterxml.jackson.annotation.JsonIgnore
 import com.market_api.the_market_api.base.BaseEntity
 import javax.persistence.*
 
@@ -12,11 +13,12 @@ data class ProductVariantUom(
     var isDefault: Boolean = false,
     var convensionFactory: Float = 0F,
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "uomId", nullable = false)
+    @OneToOne(fetch = FetchType.LAZY, cascade = [CascadeType.ALL])
+    @JoinColumn(name = "uomId", nullable = true)
     var uom: Uom?= null,
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "productId", nullable = false)
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY, cascade = [CascadeType.ALL])
+    @JoinColumn(name = "productId", insertable = true, updatable = true, nullable = true)
     var product: Product?= null
 ):BaseEntity()

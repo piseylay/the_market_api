@@ -45,24 +45,17 @@ class ProductServiceImp : ProductService{
 
     override fun addNew(t: Product): Product? {
 
-        var uomDefault = uomService.getUomDefault()
+        t.productVariantUom!!.forEach {
+            it.product = t
+        }
 
-        var provar = ProductVariantUom(
-            uom = uomDefault,
-            price = t.price,
-            convensionFactory = 1F,
-            product = t
-        )
-        //t.productVariantUom?.add(provar)
         productRepository.save(t)
-
-        productVariantUomService.addNew(provar)
 
         return  t
     }
 
     override fun updateObj(id: Long, t: Product): Product? {
-        var product = findById(id)
+        val product = findById(id)
         if(!product?.status!!) product.status = false
         else
         {
@@ -75,8 +68,9 @@ class ProductServiceImp : ProductService{
             product.description = t.description
             product.imagePath = t.imagePath
             product.thumbnail = t.thumbnail
+            product.productVariantUom = t.productVariantUom
         }
-        return product
+        return productRepository.save(product)
     }
 
     override fun findAll(): List<Product>? {
